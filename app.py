@@ -123,6 +123,10 @@ else:
             if send_clicked and question:
                 st.session_state.chat_history.append({"sender": st.session_state.peran, "message": question})
                 with st.spinner(f"{st.session_state.lawan} sedang mengetik..."):
+                    import os
+                    if not (os.path.exists('faiss.index') and os.path.exists('metadata.json')):
+                        st.error("Index belum tersedia. Silakan upload ulang file WhatsApp Anda.")
+                        st.stop()
                     retriever = ChatRetriever()
                     contexts = retriever.search(question, top_k=5)
                     # Ekstrak gaya bahasa lawan dari chat history
