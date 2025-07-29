@@ -7,8 +7,6 @@ Chatbot-RAG adalah aplikasi chatbot berbasis Retrieval-Augmented Generation (RAG
 - Chatbot dapat menjawab pertanyaan dengan konteks dari chat Anda
 - Ekstraksi gaya bahasa lawan bicara (kata, emoji, emosi, formalitas, dll)
 - Pilih peran (sebagai siapa Anda dan lawan bicara AI)
-- Tampilan chat mirip WhatsApp
-- Semua data pribadi tetap lokal, tidak perlu publish metadata ke publik
 
 ## Struktur Proyek
 - `app.py` : Entry point aplikasi Streamlit
@@ -56,7 +54,6 @@ Chatbot-RAG adalah aplikasi chatbot berbasis Retrieval-Augmented Generation (RAG
 
 **Catatan:**
 - Data chat dan index hanya tersimpan selama aplikasi berjalan (khususnya di Streamlit Cloud).
-- Anda tidak perlu mengupload file index/metadata ke GitHub, cukup upload file WhatsApp Anda setiap kali menggunakan aplikasi.
 
 ## Fitur Lain
 - Mendukung multi-user (pilih peran dan lawan bicara)
