@@ -1,31 +1,33 @@
 # Chatbot-RAG
 
-Chatbot-RAG adalah aplikasi chatbot berbasis Retrieval-Augmented Generation (RAG) yang dapat menjawab pertanyaan dengan menggabungkan kemampuan retrieval dan generative AI. Aplikasi ini dijalankan menggunakan Streamlit.
+Chatbot-RAG adalah aplikasi chatbot berbasis Retrieval-Augmented Generation (RAG) yang dapat menjawab pertanyaan berdasarkan riwayat chat WhatsApp Anda. Aplikasi ini dijalankan menggunakan Streamlit dan dapat digunakan secara lokal maupun di Streamlit Cloud.
 
-## Fitur
-- Mengambil informasi dari sumber data menggunakan retriever
-- Mengekstrak dan mengolah data menggunakan parser dan style extractor
-- Menghasilkan jawaban menggunakan model generatif
-- Mendukung embedding untuk pencarian yang lebih relevan
+## Fitur Utama
+- Upload file chat WhatsApp (.txt) dan buat index pencarian otomatis
+- Chatbot dapat menjawab pertanyaan dengan konteks dari chat Anda
+- Ekstraksi gaya bahasa lawan bicara (kata, emoji, emosi, formalitas, dll)
+- Pilih peran (sebagai siapa Anda dan lawan bicara AI)
+- Tampilan chat mirip WhatsApp
+- Semua data pribadi tetap lokal, tidak perlu publish metadata ke publik
 
 ## Struktur Proyek
 - `app.py` : Entry point aplikasi Streamlit
-- `embedder.py` : Modul untuk embedding dokumen
+- `embedder.py` : Modul untuk embedding chat
 - `generator.py` : Modul untuk menghasilkan jawaban
-- `parser.py` : Modul untuk parsing data
-- `retriever.py` : Modul untuk mengambil data relevan
-- `style_extractor.py` : Modul untuk ekstraksi gaya penulisan
+- `parser.py` : Modul untuk parsing chat WhatsApp
+- `retriever.py` : Modul untuk pencarian chat relevan
+- `style_extractor.py` : Modul ekstraksi gaya bahasa
 - `requirements.txt` : Daftar dependensi Python
 
 ## Cara Menjalankan
 
 1. **Clone repository dan masuk ke folder proyek**
    ```bash
-   git clone <url-repo-anda>
+   git clone https://github.com/bagaswibowo/Chatbot-RAG.git
    cd Chatbot-RAG
    ```
 
-2. **Buat dan aktifkan virtual environment (opsional tapi direkomendasikan)**
+2. **(Opsional) Buat dan aktifkan virtual environment**
    ```bash
    python3 -m venv venv
    source venv/bin/activate
@@ -44,10 +46,20 @@ Chatbot-RAG adalah aplikasi chatbot berbasis Retrieval-Augmented Generation (RAG
 5. **Akses aplikasi**
    Buka browser dan akses URL yang muncul di terminal, biasanya `http://localhost:8501`
 
-## Catatan
-- Pastikan semua file modul (`embedder.py`, `generator.py`, dll) berada dalam satu folder yang sama dengan `app.py`.
-- Jika ingin menambah data atau mengubah sumber data, modifikasi file dan fungsi pada `parser.py` dan `retriever.py`.
-- Untuk pengembangan lebih lanjut, pastikan untuk menambah dependensi baru ke `requirements.txt`.
+## Cara Menggunakan Aplikasi
+1. Upload file chat WhatsApp Anda (.txt) pada halaman utama aplikasi.
+2. Tunggu proses embedding dan pembuatan index selesai (akan muncul notifikasi sukses).
+3. Pilih peran (sebagai siapa Anda dan lawan bicara AI) dari daftar nama yang terdeteksi di chat.
+4. Mulai chat dengan mengetik pertanyaan atau pesan di kolom input.
+5. AI akan menjawab dengan gaya bahasa lawan bicara yang dipilih, berdasarkan riwayat chat Anda.
+6. Jika ingin memulai ulang, klik tombol "Reset Chat".
 
-## Kontak
-Untuk pertanyaan atau kontribusi, silakan hubungi [email Anda] atau buat issue/pull request di repository ini.
+**Catatan:**
+- Data chat dan index hanya tersimpan selama aplikasi berjalan (khususnya di Streamlit Cloud).
+- Anda tidak perlu mengupload file index/metadata ke GitHub, cukup upload file WhatsApp Anda setiap kali menggunakan aplikasi.
+
+## Fitur Lain
+- Mendukung multi-user (pilih peran dan lawan bicara)
+- Analisis gaya bahasa otomatis
+- Chatbot tetap menjaga privasi data Anda
+
